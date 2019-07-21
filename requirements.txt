@@ -1,4 +1,3 @@
 kutana
 peewee
 psycopg2
-gunicorn
