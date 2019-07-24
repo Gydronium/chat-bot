@@ -5,5 +5,5 @@ plugin = Plugin(name="Register")
 
 @plugin.on_text("register")
 async def _(message, env):
-    User.insert(id=message.from_id, is_boss=True).execute()
+    insert_user(user_id=message.from_id, user_is_boss=True)
     await env.reply("{}".format("Registration successful"))

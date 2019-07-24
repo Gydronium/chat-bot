@@ -19,3 +19,11 @@ class User(BaseModel):
 
     class Meta:
         table_name = 'vk_user'
+
+
+def insert_user(user_id, user_is_boss):
+    User.insert(id=user_id, is_boss=user_is_boss).execute()
+
+
+def get_all_users():
+    return User.select()
