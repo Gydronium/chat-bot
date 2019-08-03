@@ -73,7 +73,7 @@ KEYBOARD_STRING = json.dumps(KEYBOARD_OBJECT_1)
 # Plugins for sending keyboard.
 plugin1 = Plugin(name="schedule", description="Keyboard for vkontakte")
 
-@plugin1.on_text("keyboard")
+@plugin1.on_text("schedule")
 async def _(message, env):
     if env.manager_type != "vkontakte":
         await env.reply("This example works only for vk.com")
