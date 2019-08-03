@@ -2,7 +2,6 @@ import json
 
 from kutana import Plugin
 
-
 KEYBOARD_OBJECT_1 = {
     "one_time": True,
     "buttons": [
@@ -69,9 +68,9 @@ KEYBOARD_OBJECT_3 = {
 # Keyboard that will be send to VKONTAKTE is a STRING!
 KEYBOARD_STRING = json.dumps(KEYBOARD_OBJECT_1)
 
-
 # Plugins for sending keyboard.
 plugin1 = Plugin(name="schedule", description="Keyboard for vkontakte")
+
 
 @plugin1.on_text("schedule")
 async def _(message, env):
@@ -79,7 +78,7 @@ async def _(message, env):
         await env.reply("This example works only for vk.com")
         return
 
-    await env.reply("Keyboard", keyboard=KEYBOARD_STRING)
+    await env.reply("schedule", keyboard=KEYBOARD_STRING)
 
 
 KEYBOARD_STRING = json.dumps(KEYBOARD_OBJECT_2)
