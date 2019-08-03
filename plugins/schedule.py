@@ -71,7 +71,7 @@ KEYBOARD_STRING = json.dumps(KEYBOARD_OBJECT_1)
 
 
 # Plugins for sending keyboard.
-plugin1 = Plugin(name="Keyboard", description="Keyboard for vkontakte")
+plugin1 = Plugin(name="schedule", description="Keyboard for vkontakte")
 
 @plugin1.on_text("keyboard")
 async def _(message, env):
