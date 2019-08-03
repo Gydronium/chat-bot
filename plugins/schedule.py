@@ -66,7 +66,7 @@ KEYBOARD_OBJECT_3 = {
 }
 
 # Keyboard that will be send to VKONTAKTE is a STRING!
-KEYBOARD_STRING = json.dumps(KEYBOARD_OBJECT_1)
+KEYBOARD_STRING_1 = json.dumps(KEYBOARD_OBJECT_1)
 
 # Plugins for sending keyboard.
 plugin1 = Plugin(name="schedule", description="Keyboard for vkontakte")
@@ -78,10 +78,10 @@ async def _(message, env):
         await env.reply("This example works only for vk.com")
         return
 
-    await env.reply("schedule", keyboard=KEYBOARD_STRING)
+    await env.reply("schedule", keyboard=KEYBOARD_STRING_1)
 
 
-KEYBOARD_STRING = json.dumps(KEYBOARD_OBJECT_2)
+KEYBOARD_STRING_2 = json.dumps(KEYBOARD_OBJECT_2)
 
 # Plugin for intercepting messages with payload.
 plugin2 = Plugin(name="_Keyboard_listener", priority=10)
@@ -94,7 +94,7 @@ async def _(message, env):
     if not payload:
         return "GOON"
 
-    await env.reply("Keyboard", keyboard=KEYBOARD_STRING)
+    await env.reply("Keyboard", keyboard=KEYBOARD_STRING_2)
 
 
 plugins = [plugin1, plugin2]
