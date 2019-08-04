@@ -178,5 +178,8 @@ async def _(message, env):
     elif payload == "27":
         await env.reply("В воскресенье надо спать")
 
+    elif payload == "10":
+        await env.reply("Выберите нужный вариант", keyboard=KEYBOARD_STRING_2)
+
 
 plugins = [plugin1, plugin2]
