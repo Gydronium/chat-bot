@@ -99,7 +99,7 @@ async def _(message, env):
     if not payload:
         return "GOON"
 
-    elif payload == "12":
+    if payload == "12":
         await env.reply("Выберите нужный вариант", keyboard=KEYBOARD_STRING_3)
     elif payload == "21":
         await env.reply("8:30 - 10:05  Еще рано"
@@ -177,8 +177,6 @@ async def _(message, env):
                         "Ты проиграл")
     elif payload == "27":
         await env.reply("В воскресенье надо спать")
-
-    await env.reply("Выберите нужный вариант", keyboard=KEYBOARD_STRING_2)
 
 
 plugins = [plugin1, plugin2]
