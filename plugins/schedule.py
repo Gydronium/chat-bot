@@ -1,18 +1,19 @@
 import json
 
-from kutana import Plugin
+from kutana import Plugin, get_path
 
 KEYBOARD_OBJECT_1 = {
     "one_time": True,
     "buttons": [
         [
             {
-                "action": {"type": "text", "payload": "schedule", "label": "Расписание"},
+                "action": {"type": "text", "payload": "10", "label": "Расписание"},
                 "color": "primary",
             }
-        ]
-    ]
+        ],
+    ],
 }
+
 KEYBOARD_OBJECT_2 = {
     "one_time": True,
     "buttons": [
@@ -30,6 +31,7 @@ KEYBOARD_OBJECT_2 = {
         ]
     ]
 }
+
 KEYBOARD_OBJECT_3 = {
     "one_time": True,
     "buttons": [
@@ -69,32 +71,29 @@ KEYBOARD_OBJECT_3 = {
 KEYBOARD_STRING_1 = json.dumps(KEYBOARD_OBJECT_1)
 
 # Plugins for sending keyboard.
-plugin1 = Plugin(name="schedule", description="Keyboard for vkontakte")
+plugin1 = Plugin(name="Schedule", description="Keyboard for vkontakte")
 
 
 @plugin1.on_text("schedule")
 async def _(message, env):
-    if env.manager_type != "vkontakte":
-        await env.reply("This example works only for vk.com")
-        return
-
-    await env.reply("schedule", keyboard=KEYBOARD_STRING_1)
+    await env.reply("Schedule", keyboard=KEYBOARD_STRING_1)
 
 
-KEYBOARD_STRING_2 = json.dumps(KEYBOARD_OBJECT_2)
+# KEYBOARD_STRING_2 = json.dumps(KEYBOARD_OBJECT_2)
 
 # Plugin for intercepting messages with payload.
-plugin2 = Plugin(name="_Keyboard_listener", priority=10)
+# plugin2 = Plugin(name="_Keyboard_listener", priority=9)
 
 
-@plugin2.on_text("Расписание")
-async def _(message, env):
-    payload = message.raw_update["object"].get("payload")
+# @plugin2.on_has_text()
+# async def _(message, env):
+#     payload = message.raw_update["object"].get("payload")
 
-    if not payload:
-        return "GOON"
+#     if not payload:
+#         return "GOON"
 
-    await env.reply("Keyboard", keyboard=KEYBOARD_STRING_2)
+#     # await env.reply("Keyboard", keyboard=KEYBOARD_STRING_2)
+#     await env.reply("Some text")
 
 
-plugins = [plugin1, plugin2]
+# plugins = [plugin1, plugin2]

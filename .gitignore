@@ -1,2 +1,14 @@
 
 .idea/
+/kutana.log
+/db/__pycache__/connection.cpython-37.pyc
+/plugins/__pycache__/register.cpython-37.pyc
+/plugins/__pycache__/send_all.cpython-37.pyc
+/plugins/__pycache__/date.cpython-37.pyc
+/plugins/__pycache__/schedule.cpython-37.pyc
+/db/__pycache__/connection.cpython-37.pyc
+/plugins/__pycache__/register.cpython-37.pyc
+/plugins/__pycache__/send_all.cpython-37.pyc
+/db/__pycache__/connection.cpython-37.pyc
+/plugins/__pycache__/register.cpython-37.pyc
+/plugins/__pycache__/send_all.cpython-37.pyc
