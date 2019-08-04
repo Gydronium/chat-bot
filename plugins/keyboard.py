@@ -2,7 +2,6 @@ import json
 
 from kutana import Plugin, get_path
 
-
 # See https://vk.com/dev/bots_docs_3 for details
 KEYBOARD_OBJECT = {
     "one_time": True,
@@ -30,10 +29,8 @@ KEYBOARD_OBJECT = {
     ],
 }
 
-
 # Keyboard that will be send to VKONTAKTE is a STRING!
 KEYBOARD_STRING = json.dumps(KEYBOARD_OBJECT)
-
 
 # Plugins for sending keyboard.
 plugin1 = Plugin(name="Keyboard", description="Keyboard for vkontakte")
@@ -47,19 +44,18 @@ async def _(message, env):
 
     await env.reply("Keyboard", keyboard=KEYBOARD_STRING)
 
-
 # Plugin for intercepting messages with payload.
-plugin2 = Plugin(name="_Keyboard_listener", priority=10)
+# plugin2 = Plugin(name="_Keyboard_listener", priority=10)
 
 
-@plugin2.on_has_text()
-async def _(message, env):
-    payload = message.raw_update["object"].get("payload")
+# @plugin2.on_has_text()
+# async def _(message, env):
+#    payload = message.raw_update["object"].get("payload")
 
-    if not payload:
-        return "GOON"
+#    if not payload:
+#        return "GOON"
 
-    await env.reply('Your choice was: "{}"'.format(payload))
+#    await env.reply('Your choice was: "{}"'.format(payload))
 
 
-plugins = [plugin1, plugin2]
+# plugins = [plugin1, plugin2]
