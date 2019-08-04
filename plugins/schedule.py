@@ -82,7 +82,7 @@ async def _(message, env):
 # KEYBOARD_STRING_2 = json.dumps(KEYBOARD_OBJECT_2)
 
 # Plugin for intercepting messages with payload.
-plugin2 = Plugin(name="_Keyboard_listener", priority=10)
+# plugin2 = Plugin(name="_Keyboard_listener", priority=10)
 
 
 # @plugin2.on_has_text()
