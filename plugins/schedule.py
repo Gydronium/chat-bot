@@ -1,4 +1,4 @@
-import json
+import json, datetime
 
 from kutana import Plugin, get_path
 
@@ -95,6 +95,37 @@ plugin2 = Plugin(name="_Keyboard_listener", priority=10)
 @plugin2.on_has_text()
 async def _(message, env):
     payload = message.raw_update["object"].get("payload")
+
+    if payload == "11":
+        if datetime.datetime.today().isoweekday() == 1:
+            payload = "22"
+        elif datetime.datetime.today().isoweekday() == 2:
+            payload = "23"
+        elif datetime.datetime.today().isoweekday() == 3:
+            payload = "24"
+        elif datetime.datetime.today().isoweekday() == 4:
+            payload = "25"
+        elif datetime.datetime.today().isoweekday() == 5:
+            payload = "26"
+        elif datetime.datetime.today().isoweekday() == 6:
+            payload = "27"
+        elif datetime.datetime.today().isoweekday() == 7:
+            payload = "21"
+    if payload == "13":
+        if datetime.datetime.today().isoweekday() == 1:
+            payload = "21"
+        elif datetime.datetime.today().isoweekday() == 2:
+            payload = "22"
+        elif datetime.datetime.today().isoweekday() == 3:
+            payload = "23"
+        elif datetime.datetime.today().isoweekday() == 4:
+            payload = "24"
+        elif datetime.datetime.today().isoweekday() == 5:
+            payload = "25"
+        elif datetime.datetime.today().isoweekday() == 6:
+            payload = "26"
+        elif datetime.datetime.today().isoweekday() == 7:
+            payload = "27"
 
     if not payload:
         return "GOON"
