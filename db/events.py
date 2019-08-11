@@ -17,14 +17,14 @@ class User(BaseModel):
     id = IntegerField()
     date = DateTimeField()
     message = TextField()
-    is_soon = BooleanField()
+    is_upcoming = BooleanField()
 
     class Meta:
         table_name = 'events'
 
 
-def insert_event(event_id, event_date, event_message, event_is_soon):
-    User.insert(id=event_id, date=event_date, message=event_message, is_soon=event_is_soon).execute()
+def insert_event(event_id, event_date, event_message, event_is_upcoming):
+    User.insert(id=event_id, date=event_date, message=event_message, is_upcoming=event_is_upcoming).execute()
 
 
 def get_all_events():
