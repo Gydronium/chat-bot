@@ -24,3 +24,6 @@ async def _(message, env):
     for e in get_all_events():
         if (e.event_date <= datetime.now() + timedelta(7)) and (e.event_date > datetime.now()):
             await env.reply(e.message, '/n', e.event_date)
+
+
+plugins = [plugin1, plugin2]
