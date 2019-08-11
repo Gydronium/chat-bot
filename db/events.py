@@ -1,14 +1,15 @@
 from peewee import BooleanField, IntegerField, DateTimeField, TextField, Model, PostgresqlDatabase
 
 db = PostgresqlDatabase(
-    'd7d2j8dntrcove',  # Required by Peewee.
-    user='vmhedmdxwebeje',  # Will be passed directly to psycopg2.
-    password='3be9848d492615f095e6821fec5499cc619c65ba446a6e84b63cf11ec17490ad',  # Ditto.
-    host='ec2-107-21-120-104.compute-1.amazonaws.com')  # Ditto.
+    'dd35r2lke50gae',  # Required by Peewee.
+    user='collopkaitptzu',  # Will be passed directly to psycopg2.
+    password='c4d225ab82ed202dfecdc82f9bebc1e4bd06ef7f3673c55b541fb707a6fc7c61',  # Ditto.
+    host='ec2-174-129-41-127.compute-1.amazonaws.com')  # Ditto.
 
 
 class BaseModel(Model):
     """A base model that will use our Postgresql database"""
+
     class Meta:
         database = db
 
