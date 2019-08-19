@@ -8,6 +8,7 @@ plugin1 = Plugin(name="Register_event")
 
 @plugin1.on_text("register_event")
 async def _(message, env):
+    await env.reply("{}".format(type(env.body)))
     try:
         try:
             data = env.body.split(',')
@@ -16,7 +17,7 @@ async def _(message, env):
         except:
             await env.reply("{}".format("split_error"))
         message1 = data[0]
-        date = datetime.strptime(data[1], "%d%m%Y").date()
+        date = data[1]
         ev_id = int(round(datetime.now().timestamp() * 1000))
         insert_event(event_id=ev_id, event_date=date, event_message=message1, event_is_upcoming=False)
         await env.reply("{}".format("Reg_event is successful"))
