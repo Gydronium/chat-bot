@@ -9,9 +9,12 @@ plugin1 = Plugin(name="Register_event")
 @plugin1.on_text("register_event")
 async def _(message, env):
     try:
-        data = env.body.split(',')
-        for element in data:
-            await env.reply("{}".format(element))
+        try:
+            data = env.body.split(',')
+            for element in data:
+                await env.reply("{}".format(element))
+        except:
+            await env.reply("{}".format("split_error"))
         message = data[0]
         date = datetime.strptime(data[1], "%d%m%Y").date()
         ev_id = int(round(datetime.now().timestamp() * 1000))
