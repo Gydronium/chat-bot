@@ -15,10 +15,10 @@ async def _(message, env):
                 await env.reply("{}".format(element))
         except:
             await env.reply("{}".format("split_error"))
-        message = data[0]
+        message1 = data[0]
         date = datetime.strptime(data[1], "%d%m%Y").date()
         ev_id = int(round(datetime.now().timestamp() * 1000))
-        insert_event(event_id=ev_id, event_date=date, event_message=message, event_is_upcoming=False)
+        insert_event(event_id=ev_id, event_date=date, event_message=message1, event_is_upcoming=False)
         await env.reply("{}".format("Reg_event is successful"))
     except ValueError:
         await env.reply("{}".format("Value error"))
