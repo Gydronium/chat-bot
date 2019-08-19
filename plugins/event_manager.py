@@ -10,6 +10,8 @@ plugin1 = Plugin(name="Register_event")
 async def _(message, env):
     try:
         data = env.body.split(',')
+        for element in data:
+            await env.reply("{}".format(element))
         message = data[0]
         date = datetime.strptime(data[1], "%d%m%Y").date()
         ev_id = int(round(datetime.now().timestamp() * 1000))
