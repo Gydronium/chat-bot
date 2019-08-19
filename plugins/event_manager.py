@@ -15,6 +15,8 @@ async def _(message, env):
         ev_id = int(round(datetime.now().timestamp() * 1000))
         insert_event(event_id=ev_id, event_date=date, event_message=message, event_is_upcoming=False)
         await env.reply("{}".format("Reg_event is successful"))
+    except ValueError:
+        await env.reply("{}".format("Value error"))
     except:
         await env.reply("{}".format("There was an error"))
 
