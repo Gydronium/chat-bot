@@ -8,6 +8,7 @@ plugin1 = Plugin(name="Register_event")
 
 @plugin1.on_text("register_event")
 async def _(message, env):
+    await env.reply("{}".format(env.body))
     await env.reply("{}".format(type(env.body)))
     try:
         try:
