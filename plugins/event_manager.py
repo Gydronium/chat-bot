@@ -25,7 +25,7 @@ plugin2 = Plugin(name="Get_upcoming_events")
 @plugin2.on_text("get_upcoming_events")
 async def _(message, env):
     for e in get_all_events():
-        if (e.date <= datetime.now() + timedelta(7)) and (e.date > datetime.now()):
+        if (e.date <= datetime.now().date() + timedelta(7)) and (e.date > datetime.now().date()):
             await env.reply("{0} \n {1}".format(e.message, e.date))
     await env.reply('Это все')
 
