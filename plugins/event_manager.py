@@ -6,24 +6,15 @@ from db.events import *
 plugin1 = Plugin(name="Register_event")
 
 
-@plugin1.on_text("register_event")
+@plugin1.on_startswith_text("register_event")
 async def _(message, env):
-    await env.reply("{}".format(env.body))
-    await env.reply("{}".format(type(env.body)))
     try:
-        try:
-            data = env.body.split(',')
-            for element in data:
-                await env.reply("{}".format(element))
-        except:
-            await env.reply("{}".format("split_error"))
+        data = env.body.split(',')
         message1 = data[0]
         date = data[1]
-        ev_id = int(round(datetime.now().timestamp() * 1000))
+        ev_id = int(round(datetime.now().timestamp()/10))
         insert_event(event_id=ev_id, event_date=date, event_message=message1, event_is_upcoming=False)
         await env.reply("{}".format("Reg_event is successful"))
-    except ValueError:
-        await env.reply("{}".format("Value error"))
     except:
         await env.reply("{}".format("There was an error"))
 
@@ -34,9 +25,19 @@ plugin2 = Plugin(name="Get_upcoming_events")
 @plugin2.on_text("get_upcoming_events")
 async def _(message, env):
     for e in get_all_events():
-        if (e.event_date <= datetime.now() + timedelta(7)) and (e.event_date > datetime.now()):
-            await env.reply(e.message, '/n', e.event_date)
+        if (e.date <= datetime.now() + timedelta(7)) and (e.date > datetime.now()):
+            await env.reply(e.message, '/n', e.date)
     await env.reply('Это все')
 
 
-plugins = [plugin1, plugin2]
+plugin3 = Plugin(name="Get_all_events")
+
+
+@plugin2.on_text("get_all_events")
+async def _(message, env):
+    for e in get_all_events():
+        await env.reply("{0} \n {1}".format(e.message, e.date))
+    await env.reply('Это действительно все')
+
+
+plugins = [plugin1, plugin2, plugin3]
