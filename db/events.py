@@ -30,3 +30,12 @@ def insert_event(event_id, event_date, event_message, event_is_upcoming):
 
 def get_all_events():
     return User1.select()
+
+
+def update_event(event_id, event_message, event_date, message_update, date_update):
+    event = User1.get_by_id(event_id)
+    if message_update:
+        event.message = event_message
+    if date_update:
+        event.date = event_date
+    event.save()
