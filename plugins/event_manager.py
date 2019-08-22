@@ -61,7 +61,7 @@ async def _(message, env):
         ev_id = data[0]
         date = data[1]
         update_event(ev_id, '0', date, False, True)
-        await env.reply('Дата события обновлено')
+        await env.reply('Дата события обновлена')
     except:
         await env.reply('There was an error')
 
