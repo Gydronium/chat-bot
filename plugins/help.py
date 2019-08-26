@@ -67,9 +67,12 @@ KEYBOARD_OBJECT_1 = {
 
 KEYBOARD_STRING_1 = json.dumps(KEYBOARD_OBJECT_1)
 
-plugin1 = Plugin(name="Help", description="Keyboard for vkontakte")
+plugin1 = Plugin(name="Help", description="Description of all functions")
 
 
 @plugin1.on_text("help")
 async def _(message, env):
     await env.reply("Help", keyboard=KEYBOARD_STRING_1)
+
+
+plugins = [plugin1]
